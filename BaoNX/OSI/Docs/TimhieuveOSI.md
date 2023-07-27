@@ -70,7 +70,7 @@ Lớp này bao gồm các thiết bị vật lý liên quan đến việc truy�
 |__Network__|Thực hiện chọn đường và đảm bảo trao đổi thông tin trong liên mạng với công nghệ chuyển mạch thích hợp.|Giao thức mạng|
 |__Data Link__|Tạo/gỡ bỏ khung thông tin (Frames), kiểm soát luồng và kiểm soát lỗi.|Thủ tục kiểm soát|
 |__Physical__|Đảm bảo các yêu cầu truyền/nhận các chuỗi bit qua các phương tiện vật lý.|Giao diện DTE - DCE| 
-# 4. Wordflow với mô hình OSI
+# 4. Workflow với mô hình OSI
 ## Kịch bản: Bên A muốn gửi một thông tin đến bên B  
 Khi A gửi một dữ liệu (thông tin) đến B thì dữ liệu sẽ trải qua 2 tiến trình cơ bản là:
 
