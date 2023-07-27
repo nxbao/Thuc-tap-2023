@@ -70,3 +70,45 @@ Lớp này bao gồm các thiết bị vật lý liên quan đến việc truy�
 |__Network__|Thực hiện chọn đường và đảm bảo trao đổi thông tin trong liên mạng với công nghệ chuyển mạch thích hợp.|Giao thức mạng|
 |__Data Link__|Tạo/gỡ bỏ khung thông tin (Frames), kiểm soát luồng và kiểm soát lỗi.|Thủ tục kiểm soát|
 |__Physical__|Đảm bảo các yêu cầu truyền/nhận các chuỗi bit qua các phương tiện vật lý.|Giao diện DTE - DCE| 
+# 4. Wordflow với mô hình OSI
+## Kịch bản: Bên A muốn gửi một thông tin đến bên B  
+Khi A gửi một dữ liệu (thông tin) đến B thì dữ liệu sẽ trải qua 2 tiến trình cơ bản là:
+
+![Alt text](../Images/10.PNG)
+
+Hp: Presentation Header  
+Hi: Session Header  
+Hs: Transport Header  
+Hn: Network Header  
+Hd: Data link Header
++ Tiến trình đóng gói tại trạm gửi (Data Encapsulation)
++ Tiến trình mở gói tại trạm nhận (Data De-encapsulation)  
+
+**Quá trình đóng gói dữ liệu**
+
+![Alt text](../Images/11.png)
+
+**Bước 1**: Trình ứng dụng (bên A) tạo ra dữ liệu và các chương trình phần cứng, phần mềm cài đặt mỗi lớp sẽ bổ sung vào header  
+**Bước 2**: Tiếp theo các thông tin đó được chuyển xuống lớp Presentation để chuyển thành dạng chung, rồi mã hoá và nén dữ liệu. Tiếp đó dữ liệu được chuyển xuống lớp Sessionđể bổ sung các thông tin về phiên giao dịch này.  
+**Bước 3**: Dữ liệu tiếp tục được chuyển xuống lớp Transport, tại lớp này dữ liệu được cắt ra thành nhiều Segment và dán số port đích, port source (ngẫu nhiên), số thứ tự vào mỗi phần nhỏ
+đó để đảm bảo độ tin cậy khi truyền  
+**Bước 4**: Dữ liệu tiếp tục được chuyển xuống lớp Network, tại lớp này mỗi Segment được cắt ra thành nhiều Packet và thực hiện việc tìm nexthop để đẩy gói tin đi.  
+**Bước 5**: Tiếp đó dữ liệu được chuyển xuống lớp DataLink, tại đây thực hiện việc dán địa chỉ mac cổng thiết bị hiện tại và mac đích (mac của cổng router phía trước), dán xong thì packet được gọi là frame.  
+**Bước 6**: Cuối cùng, mỗi Frame sẽ được tầng Vật Lý chuyển thành một chuỗi các bit và truyền đến B trên dây mạng.  
+
+**Quá trình mở gói dữ liệu**
+
+![Alt text](../Images/12.png)
+
+**Bước 1**: Lớp Physical kiểm tra quá trình đồng bộ bit và đặt chuỗi bit nhận được vào vùng đệm. Sau đó thông báo cho lớp Data Link dữ liệu đã được nhận.  
+**Bước 2**: Lớp DataLink kiểm lỗi frame. Nếu có lỗi thì frame bị bỏ. Sau đó kiểm tra địa chỉ lớp DataLink (địa chỉ mac) xem có trùng với địa chỉ máy nhận hay không. Nếu đúng thì phần dữ liệu sau khi loại header sẽ được chuyển lên cho lớp Network.  
+**Bước 3**: Địa chỉ lớp Networkđược kiểm tra xem có phải là địa chỉ máy nhận hay không (địa chỉ IP) ? Nếu đúng thì dữ liệu được chuyển lên cho lớp Transport xử lý.  
+**Bước 4**: Nếu giao thức lớp Transport có hỗ trợ việc phục hồi lỗi thì số định danh phân đoạn được xử lý. Các thông tin ACK,NAK (gói tin ACK,NAK dùng để phản hồi về việc các gói tin đã được gởi đến máy nhận chưa) cũng được xử lý ở lớp này. Sau quá trình phục hồi lỗi và sắp thứ tự các phân đoạn, dữ liệu được đưa lên lớp Session.  
+**Bước 5**: Lớp Session đảm bảo một chuỗi các thông điệp đã trọn vẹn. Sau khi các luồng đã hoàn tất, lớp Session chuyển dữ liệu sau header lớp 5 lên cho lớp Presentation xử lý.  
+**Bước 6**: Dữ liệu sẽ được lớp Presentation xử lý bằng cách chuyển đổi dạng thức dữ liệu. Sau đó kết quả chuyển lên cho lớp Application.  
+**Bước 7**: Lớp Application xử lý header cuối cùng. Header này chứa các tham số thoả thuận giữa hai trình ứng dụng. Do vậy tham số này thường chỉ được trao đổi lúc khởi động quá trình truyền thông giữa hai trình ứng dụng.  
+
+
+**Tài liệu tham khảo:**  
+[voer.edu.vn(1)](https://voer.edu.vn/c/mo-hinh-osi/06efff39/ada23423)  
+[voer.edu.vn(2)](https://voer.edu.vn/m/cau-truc-goi-tin-va-luong-du-lieu-tren-mang/9fd9fa38)
