@@ -110,5 +110,6 @@ Hd: Data link Header
 
 
 **Tài liệu tham khảo:**  
+[totolink.vn](https://www.totolink.vn/article/136-mo-hinh-osi-la-gi-chuc-nang-cua-cac-tang-giao-thuc-trong-mo-hinh-osi.html)  
 [voer.edu.vn(1)](https://voer.edu.vn/c/mo-hinh-osi/06efff39/ada23423)  
 [voer.edu.vn(2)](https://voer.edu.vn/m/cau-truc-goi-tin-va-luong-du-lieu-tren-mang/9fd9fa38)
