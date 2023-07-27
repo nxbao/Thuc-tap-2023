@@ -143,3 +143,5 @@ output:
 |---|----------------|
 |Nguyễn Văn A | Nam|
 |Nguyễn Thị B|Nữ|
+
+**Tài liệu tham khảo**: [viblo.asia](https://viblo.asia/p/su-dung-markdown-tu-co-ban-den-nang-cao-L4x5x8Ba5BM?fbclid=IwAR0dvXDJoSr93mA1DL83yL6AGj9VzElg7o5esW86Ny71SSaKNo5hsIr17TA#_44---nhan-manh-tu-10)
