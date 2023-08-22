@@ -40,3 +40,4 @@ Spanning Tree Protocol (STP) là một giao thức được dùng để ngăn ch
 ***Tài liệu tham khảo***  
 [bkhost.vn](https://bkhost.vn/blog/vlan/)  
 [quantrimang.com](https://quantrimang.com/cong-nghe/vlan-la-gi-lam-the-nao-de-cau-hinh-mot-vlan-tren-switch-cisco-64830)  
+[itforvn.com](https://itforvn.com/bai-6-vlan-trunking-vtp/)
