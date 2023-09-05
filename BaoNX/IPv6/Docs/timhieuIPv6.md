@@ -1,6 +1,6 @@
 # 1. IPv6 là gì?
 IPv6 là phiên bản tiếp theo của giao thức Internet Protocol (IP), mà được sử dụng để điều hướng gói tin trên mạng Internet. Nó được thiết kế để thay thế cho IPv4, giao thức hiện tại được sử dụng rộng rãi nhất trên thế giới.  
-# 2. Cấu trúc thành phần của IPv6
+# 2. Cấu trúc và thành phần của IPv6
 ## 2.1 Cấu trúc
 Cấu trúc địa chỉ IPv6 gồm 8 phần, mỗi phần có độ dài là 16 bit (2 byte). Tổng cộng có 128 bit, còn nhiều hơn gấp đôi so với IPv4, có 32 bit (4 byte). Mỗi phần địa chỉ IPv6 được ngăn cách bởi dấu gạch ngang (:). Ví dụ, một địa chỉ IPv6 có thể là: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.  
 
@@ -22,7 +22,7 @@ Trong đó:
 + Subnet ID: 0000
 + Interface ID: 0000:0000:1986:69af
 
-#3. Phân loại
+# 3. Phân loại
 Địa chỉ IPv6 được chia thành 3 loại sau đây:  
 ## Unicast:
 Địa chỉ Unicast là loại địa chỉ IPv6 được sử dụng trong một mạng nội bộ (private network). Địa chỉ local unicast không được phân bố trên toàn cầu và chỉ có thể được sử dụng trong mạng cụ thể đó.  
