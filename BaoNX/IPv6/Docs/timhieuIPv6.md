@@ -2,9 +2,9 @@
 IPv6 là phiên bản tiếp theo của giao thức Internet Protocol (IP), mà được sử dụng để điều hướng gói tin trên mạng Internet. Nó được thiết kế để thay thế cho IPv4, giao thức hiện tại được sử dụng rộng rãi nhất trên thế giới.  
 # 2. Cấu trúc thành phần của IPv6
 ## 2.1 Cấu trúc
-Cấu trúc địa chỉ IPv6 gồm 8 phần, mỗi phần có độ dài là 16 bit (2 byte). Tổng cộng có 128 bit, còn nhiều hơn gấp đôi so với IPv4, có 32 bit (4 byte). Mỗi phần địa chỉ IPv6 được ngăn cách bởi dấu gạch ngang (-). Ví dụ, một địa chỉ IPv6 có thể là: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.  
+Cấu trúc địa chỉ IPv6 gồm 8 phần, mỗi phần có độ dài là 16 bit (2 byte). Tổng cộng có 128 bit, còn nhiều hơn gấp đôi so với IPv4, có 32 bit (4 byte). Mỗi phần địa chỉ IPv6 được ngăn cách bởi dấu gạch ngang (:). Ví dụ, một địa chỉ IPv6 có thể là: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.  
 
-Địa chỉ IPv6 cũng có thể được viết dưới dạng “shorthand notation” để giảm bớt số lượng ký tự. Trong trường hợp này, các phần có giá trị là 0 sẽ bỏ qua và các dấu gạch ngang (-) sẽ bỏ qua. Ví dụ, địa chỉ IPv6 trên có thể được viết lại như sau: 2001:db8:85a3::8a2e:370:7334.  
+Địa chỉ IPv6 cũng có thể được viết dưới dạng “shorthand notation” để giảm bớt số lượng ký tự. Trong trường hợp này, các phần có giá trị là 0 sẽ bỏ qua. Ví dụ, địa chỉ IPv6 trên có thể được viết lại như sau: 2001:db8:85a3::8a2e:370:7334.  
 
 ![Alt text](../Images/1.jpg)  
 
