@@ -26,8 +26,72 @@ Trong đó:
 # 3. Phân loại
 Địa chỉ IPv6 được chia thành 3 loại sau đây:  
 ## Unicast:
-Địa chỉ Unicast là loại địa chỉ IPv6 được sử dụng trong một mạng nội bộ (private network). Địa chỉ local unicast không được phân bố trên toàn cầu và chỉ có thể được sử dụng trong mạng cụ thể đó.  
+Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6. Một gói tin có đích đến là 1 địa chỉ unicast thì gói tin đó sẽ được chuyển đến 1 interface duy nhất có địa chỉ đó. Có các loại địa chỉ sau thuộc Unicast:  
+**Global Unicast Address:** Là địa chỉ IPv6 toàn cầu (tương tự như địa chỉ public của IPv4). Phạm vi định vị của GUA là toàn hệ thống IPv6 trên thế giới.  
++ 3 bit đầu luôn có giá trị là 001 (Prefix=2000::/3)
++ Global Routing Prefix: gồm 45 bit. Là địa chỉ được cung cấp cho công ty, cơ quan, tập đoàn hay một tổ chức nào đó khi đăng ký địa chỉ IPv6 public.
++ Subnet ID: Gồm 16 bit, là địa chỉ do các tổ chức tự cấp.
++ Interface ID: Gồm 54 bit, là địa chỉ của các interface trong subnet.  
+
+![Alt text](../Images/3.PNG)  
+
+**Link-local Address:** Là địa chỉ được sử dụng cho những node trên 1 link duy nhất. Tự động cấu hình, tìm kiếm neighbor. Router không được chuyển tiếp gói tín có địa chỉ nguồn hoặc đích là link-local ra khỏi phạm vi liên kết. Bao gồm các địa chỉ dùng cho các host trong cùng 1 link và quy trình xác định các node (Neighbor Discovery Process), qua đó các node trong cùng link cũng có thể liên lạc với nhau. Phạm vi sử dụng của LLA là trong cùng 1 link (do đó có thể trùng nhau ở link khác). Khi dùng HĐH Windows, LLA được cấp tự động như sau:  
++ 64 bit đầu có giá trị FE80 là giá trị cố định (Prefix=FE80::/64)
++ Interface ID: gồm 64 bit kết hợp cùng địa chỉ MAC. Ví dụ: FE80::1CEF:01BC:FE01:1101  
+
+![Alt text](../Images/4.PNG)  
+
+**Site Local Address:** Được sử dụng trong hệ thống nội bộ (Intranet) tương tự các địa chỉ Private IPv4 (10.X.X.X, 172.16.X.X, 192.168.X.X). Phạm vi sử dụng Site-Local Addresses là trong cùng Site.  
++ 1111 1110 11: 10 bit đầu là giá trị cố định (Prefix=FEC0/10)
++ Subnet ID: gồm 54 bit dùng để xác định các subnet trong cùng site.
++ Interface ID: Gồm 64 bit là địa chỉ của các interface trong subnet. Lưu ý: Hai dạng địa chỉ Unicast (LLA và SLA) vừa trình bày trên được gọi chung là các địa chỉ unicast nội bộ (Local Use Unicast Address). Với cấu trúc như thế thì các Local Use Unicast Address có thể bị trùng lặp (trong các Link khác hoặc Site khác). Do vậy khi sử dụng các Local Use Unicast Address có 1 thông số định vị được thêm vào là Additional Identifier gọi là Zone ID.  
+
+![Alt text](../Images/5.PNG)  
+
+**Unique-Local Addresses:** Đối với các tổ chức có nhiều Site, Prefix của SLA có thể bị trùng lặp. Có thể thay thế SLA bằng ULA (RFC 4193), ULA là địa chỉ duy nhất của một Host trong hệ thống có nhiều Site với cấu trúc:  
++ 1111 110: 7 bit đầu là giá trị cố định FC00/7. L=0: Local. → Prefix = FC00/8.
++ Global ID: Địa chỉ site. Có thể gán thêm tuỳ ý.
++ Subnet ID: Địa chỉ subnet trong site.
+
+![Alt text](../Images/6.PNG)  
+
 ## Multicast:
-Địa chỉ Multicast là loại địa chỉ IPv6 được sử dụng để gửi tin tới nhiều thiết bị cùng một lúc. Địa chỉ multicast được dạng bắt đầu bằng FF.  
+Trong địa chỉ IPv6 không còn tồn tại khái niệm địa chỉ Broadcast. Mọi chức năng của địa chỉ Broadcast trong IPv4 được đảm nhiệm thay thế bởi địa chỉ IPv6 Multicast.  
+
+Địa chỉ Multicast giống địa chỉ Broadcast ở chỗ điểm đích của gói tin là một nhóm các máy trong một mạng, song không phải tất cả các máy. Trong khi Broadcast gửi trực tiếp tới mọi host trong một subnet thì Multicast chỉ gửi trực tiếp cho một nhóm xác định các host, các host này lại có thể thuộc các subnet khác nhau.  
+
+Host có thể lựa chọn có tham gia vào một nhóm Multicast cụ thể nào đó hay không (thường được thực hiện với thủ tục quản lý nhóm internet - Internet Group Management Protocol), trong khi đó với Broadcast, mọi host là thành viên của nhóm Broadcast bất kể nó có muốn hay không.  
+
+![Alt text](../Images/7.PNG)  
+
++ Multicast Address được định nghĩa với prefix là FF::/8.
++ Từ FF00:: đến FF0F:: là địa chỉ dành riêng được quy định bởi IANA để sử dụng cho mục đích Multicast.
++ Octet thứ hai chỉ ra flag và scope của địa chỉ multicast.  
+
+Flag xác định thời gian sống của địa chỉ. Có 2 giá trị flag:  
+>Flag = 0: Địa chỉ multicast vĩnh viễn.  
+ Flag = 1: Địa chỉ multicast tạm thời.
+
+Scope chỉ ra phạm vi hoạt động của địa chỉ. Có 7 giá trị của scope:  
+>Scope = 1: Interface-local.  
+        Scope = 2: Link-local.  
+        Scope = 3: Subnet-local.  
+        Scope = 4: Admin-local.  
+        Scope = 5: Site-local.  
+        Scope = 8: Organization.  
+        Scope = E: Link-local.  
+
++ Một số địa chỉ Multicast thường gặp:  
+FF02::1 -> All-nodes (link-local scope)  
+FF02::2 -> All-routers (link-local scope)  
+FF02::5 -> All SPF routers  
+FF02::6 -> All DR and BDR routers  
+FF02::9 -> All RIPng routers  
+FF02::A -> All EIGRP routers  
+FF02::1:2 -> All DHCP relay agents and servers  
+FF05::1:3 -> All DHCP servers (site-local scope)  
 ## Anycast:
-Địa chỉ Anycast là loại địa chỉ IPv6 được sử dụng để gửi tin tới một thiết bị duy nhất trong một nhóm các thiết bị. Địa chỉ anycast không có dạng cụ thể cụ thể nhất định, vì nó là một địa chỉ đặc biệt được sử dụng trong một nhóm các thiết bị.
+Địa chỉ Anycast được gán cho một nhóm các giao diện (thông thường là những nodes khác nhau), và những gói tin có địa chỉ này sẽ được chuyển đổi giao diện gần nhất có địa chỉ này. Khái niệm gần nhất ở đây dựa vào khoảng cách gần nhất xác định qua giao thức định tuyến sử dụng. Thay vì gửi 1 gói tin đến 1 server nào đó, nó gửi gói tin đến địa chỉ chung mà sẽ được nhận ra bởi tất cả các loại server trong loại nào đó, và nó tin vào hệ thống định tuyến để đưa gói tin đến các server gần nhất này.  
+
+Trong giao thức IPv6, địa chỉ anycast không có cấu trúc đặc biệt. Các địa chỉ Anycast nằm trong một phần không gian của địa chỉ unicast. Do đó, về mặt cấu trúc địa chỉ Anycast không thể phân biệt với địa chỉ Unicast. Khi những địa chỉ Unicast được gán nhiều hơn cho một giao diện nó trở thành địa chỉ Anycast. Đối với những node được gán địa chỉ này phải được cấu hình với ý nghĩa của địa chỉ anycast. Trong cấu trúc của bất kỳ một địa chỉ anycast đều có một phần tiền tố P dài nhất để xác định phạm vi (vùng) mà địa chỉ anycast đó gán cho các giao diện. 
+
