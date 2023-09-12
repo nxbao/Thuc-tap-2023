@@ -64,32 +64,7 @@ Host có thể lựa chọn có tham gia vào một nhóm Multicast cụ thể n
 
 ![Alt text](../Images/7.PNG)  
 
-+ Multicast Address được định nghĩa với prefix là FF::/8.
-+ Từ FF00:: đến FF0F:: là địa chỉ dành riêng được quy định bởi IANA để sử dụng cho mục đích Multicast.
-+ Octet thứ hai chỉ ra flag và scope của địa chỉ multicast.  
-
-Flag xác định thời gian sống của địa chỉ. Có 2 giá trị flag:  
->Flag = 0: Địa chỉ multicast vĩnh viễn.  
- Flag = 1: Địa chỉ multicast tạm thời.
-
-Scope chỉ ra phạm vi hoạt động của địa chỉ. Có 7 giá trị của scope:  
->Scope = 1: Interface-local.  
-        Scope = 2: Link-local.  
-        Scope = 3: Subnet-local.  
-        Scope = 4: Admin-local.  
-        Scope = 5: Site-local.  
-        Scope = 8: Organization.  
-        Scope = E: Link-local.  
-
-+ Một số địa chỉ Multicast thường gặp:  
-FF02::1 -> All-nodes (link-local scope)  
-FF02::2 -> All-routers (link-local scope)  
-FF02::5 -> All SPF routers  
-FF02::6 -> All DR and BDR routers  
-FF02::9 -> All RIPng routers  
-FF02::A -> All EIGRP routers  
-FF02::1:2 -> All DHCP relay agents and servers  
-FF05::1:3 -> All DHCP servers (site-local scope)  
+  
 ## Anycast:
 Địa chỉ Anycast được gán cho một nhóm các giao diện (thông thường là những nodes khác nhau), và những gói tin có địa chỉ này sẽ được chuyển đổi giao diện gần nhất có địa chỉ này. Khái niệm gần nhất ở đây dựa vào khoảng cách gần nhất xác định qua giao thức định tuyến sử dụng. Thay vì gửi 1 gói tin đến 1 server nào đó, nó gửi gói tin đến địa chỉ chung mà sẽ được nhận ra bởi tất cả các loại server trong loại nào đó, và nó tin vào hệ thống định tuyến để đưa gói tin đến các server gần nhất này.  
 
