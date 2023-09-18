@@ -49,9 +49,7 @@ Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6
 ![Alt text](../Images/5.PNG)  
 
 **Unique-Local Addresses:** Đối với các tổ chức có nhiều Site, Prefix của SLA có thể bị trùng lặp. Có thể thay thế SLA bằng ULA (RFC 4193), ULA là địa chỉ duy nhất của một Host trong hệ thống có nhiều Site với cấu trúc:  
-+ 1111 110: 7 bit đầu là giá trị cố định FC00/7. L=0: Local. → Prefix = FC00/8.
-+ Global ID: Địa chỉ site. Có thể gán thêm tuỳ ý.
-+ Subnet ID: Địa chỉ subnet trong site.
++ 1111 110: 7 bit đầu là giá trị cố định FC00/7.
 
 ![Alt text](../Images/6.PNG)  
 
