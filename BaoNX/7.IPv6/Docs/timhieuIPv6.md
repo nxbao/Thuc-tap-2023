@@ -50,9 +50,6 @@ Một địa chỉ unicast xác định duy nhất 1 interface của 1 node IPv6
 
 **Unique-Local Addresses:** Đối với các tổ chức có nhiều Site, Prefix của SLA có thể bị trùng lặp. Có thể thay thế SLA bằng ULA (RFC 4193), ULA là địa chỉ duy nhất của một Host trong hệ thống có nhiều Site với cấu trúc:  
 + 1111 110: 7 bit đầu là giá trị cố định FC00/7.
-
-![Alt text](../Images/6.PNG)  
-
 ## Multicast:
 Trong địa chỉ IPv6 không còn tồn tại khái niệm địa chỉ Broadcast. Mọi chức năng của địa chỉ Broadcast trong IPv4 được đảm nhiệm thay thế bởi địa chỉ IPv6 Multicast.  
 
