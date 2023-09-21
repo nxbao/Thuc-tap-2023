@@ -65,5 +65,32 @@ Host có thể lựa chọn có tham gia vào một nhóm Multicast cụ thể n
 
 Trong giao thức IPv6, địa chỉ anycast không có cấu trúc đặc biệt. Các địa chỉ Anycast nằm trong một phần không gian của địa chỉ unicast. Do đó, về mặt cấu trúc địa chỉ Anycast không thể phân biệt với địa chỉ Unicast. Khi những địa chỉ Unicast được gán nhiều hơn cho một giao diện nó trở thành địa chỉ Anycast. Đối với những node được gán địa chỉ này phải được cấu hình với ý nghĩa của địa chỉ anycast. Trong cấu trúc của bất kỳ một địa chỉ anycast đều có một phần tiền tố P dài nhất để xác định phạm vi (vùng) mà địa chỉ anycast đó gán cho các giao diện. 
 
+# 4. Dual Stack
+Dual Stack còn gọi là cơ chế chồng giao thức, là cơ chế cơ bản nhất cho phép nút mạng đồng thời hỗ trợ cả hai giao thức Ipv4 và Ipv6. Có được khả năng trên do một trạm Dual Stack cài đặt cả hai giao thức Ipv6 và Ipv4. Trạm Dual Stack sẽ giao tiếp bằng giao thức Ipv4 với các trạm Ipv4 và bằng giao thức Ipv6 với các trạm Ipv6.
+
+![Alt text](../Images/8.PNG)  
+
+## So sánh Dual Stack và cài IPv6 riêng biệt
+**Cài đặt bài hát IPv6 với IPv4 (IPv4/IPv6 Dual-stack):**
+
++ Trong quá trình cài đặt này, mạng sử dụng cả song song IPv4 và IPv6. Các thiết bị và dịch vụ trên mạng có thể sử dụng cả hai phiên bản của giao thức Internet này.
++ Điều này cho phép các thiết bị và ứng dụng tiếp tục sử dụng IPv4 trong khi IPv6 được hỗ trợ cho các ứng dụng và dịch vụ mới hoặc đã được nâng cấp.
++ IPv6 và IPv4 được phát triển cùng nhau và các thiết bị trong mạng sẽ có cả địa chỉ IPv6 và IPv4.
+
+**Cài đặt IPv6 riêng biệt (chỉ dành cho IPv6):**
+
++ Trong quá trình cài đặt này, mạng chỉ sử dụng IPv6 mà không sử dụng IPv4. Điều này có nghĩa là tất cả các thiết bị và dịch vụ trên mạng sẽ sử dụng IPv6 để giao tiếp.
++ Điều này thường được thực hiện trong môi trường môi trường mới, sạch sẽ, không phụ thuộc vào IPv4 và có khả năng phát triển đầy đủ IPv6.
++ Yêu cầu đảm bảo rằng tất cả các ứng dụng và thiết bị trên mạng đều hỗ trợ IPv6.
+
+Tóm lại, sự khác biệt chính giữa việc cài đặt IPv6 riêng biệt và cài đặt bài hát IPv6 với IPv4 là về việc sử dụng IPv4. Đặc biệt, trong quá trình cài đặt IPv6 riêng, IPv4 không được sử dụng, trong khi cài đặt bài hát IPv6 với IPv4, cả hai phiên bản của giao thức Internet này đều được sử dụng và hỗ trợ. Lựa chọn cài đặt nào phụ thuộc vào công cụ yêu cầu của mạng và khả năng khai thác IPv6 của bạn.
+
+
+
+
+
+
+
 ***Tài liệu tham khảo***  
-[viblo.asia](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)
+[viblo.asia](https://viblo.asia/p/tim-hieu-ve-ipv6-3P0lPyDG5ox)  
+[vnpro.vn](https://vnpro.vn/thu-vien/co-che-dual-stack-va-duong-ham-ipv6-qua-ipv4-2273.html)
