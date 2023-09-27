@@ -83,7 +83,7 @@ Dual Stack còn gọi là cơ chế chồng giao thức, là cơ chế cơ bản
 + Điều này thường được thực hiện trong môi trường môi trường mới, sạch sẽ, không phụ thuộc vào IPv4 và có khả năng phát triển đầy đủ IPv6.
 + Yêu cầu đảm bảo rằng tất cả các ứng dụng và thiết bị trên mạng đều hỗ trợ IPv6.
 
-Tóm lại, sự khác biệt chính giữa việc cài đặt IPv6 riêng biệt và cài đặt bài hát IPv6 với IPv4 là về việc sử dụng IPv4. Đặc biệt, trong quá trình cài đặt IPv6 riêng, IPv4 không được sử dụng, trong khi cài đặt bài hát IPv6 với IPv4, cả hai phiên bản của giao thức Internet này đều được sử dụng và hỗ trợ. Lựa chọn cài đặt nào phụ thuộc vào công cụ yêu cầu của mạng và khả năng khai thác IPv6 của bạn.
+Tóm lại, sự khác biệt chính giữa việc cài đặt IPv6 riêng biệt và cài đặt song song IPv6 với IPv4 là về việc sử dụng IPv4. Đặc biệt, trong quá trình cài đặt IPv6 riêng, IPv4 không được sử dụng, trong khi cài đặt song song IPv6 với IPv4, cả hai phiên bản của giao thức Internet này đều được sử dụng và hỗ trợ. Lựa chọn cài đặt nào phụ thuộc vào công cụ yêu cầu của mạng và khả năng khai thác IPv6 của bạn.
 
 
 
